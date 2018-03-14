@@ -1,10 +1,9 @@
 -module(read_input).
 -import(string, [chomp/1, split/3]).
--compile(export_all).
+-include_lib("tarry_records.hrl").
+-export([read_input/0]).
 
--record(input_data, {initial = "", nodes = []}).
--record(node_data, {name, connections}).
-
+% Gets the line, and nicely handles EOF.
 get_line() ->
     Line = io:get_line(""),
     if
@@ -20,14 +19,15 @@ get_line() ->
             string:chomp(Line)
     end.
 
+% Reads the rest of stdin.
 read_rest(#input_data{initial = Init, nodes = Nodes}) ->
     Line = get_line(),
     if
         Line == eof ->
             #input_data{initial = Init, nodes = Nodes};
         true ->
-            [NodeName | NodeConnections] = string:split(Line, " ", all),
-            NodeData = #node_data{name = NodeName, connections = NodeConnections},
+            [NodeName | NodeNeighbours] = string:split(Line, " ", all),
+            NodeData = #node_data{name = NodeName, neighbours = NodeNeighbours},
             NewData = #input_data{initial = Init, nodes = [NodeData | Nodes]},
             read_rest(NewData)
     end.
@@ -39,8 +39,3 @@ read_first() ->
 read_input() ->
     InputData = read_first(),
     read_rest(InputData).
-
-main() ->
-    InputData = read_input(),
-    io:fwrite("~p~n", [InputData]).
-

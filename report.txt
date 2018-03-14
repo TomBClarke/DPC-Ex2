@@ -1,16 +1,20 @@
 Team name: A2Groups 12
-Team members: Thomas Clarke (1443652), Benjamin Durrans () and Cameron Angus ()
+Team members: Thomas Clarke (1443652), Benjamin Durrans (1448828) and Cameron Angus (1438067)
 
 How to run:
-```
-sudo rm -rf /
-```
-
-(Likely) Output:
-```
-(Segmentation fault)
+```bash
+erlc *.erl
+cat "${DATA_FILE_NAME}" | erl -noshell -run tarry main -run init stop
 ```
 
-We achieved... (hopefully "Assignment fully completed and correct").
+Sample output:
+```
+p q t u s p s t r q r t s q s u t q p
+```
 
-We thought we did this really well... (TBC).
+Assignment fully completed and correct.
+
+Special features:
+ - We use a random number generator to pick points.
+ - We have fairly high code reuse.
+ - It parses the input backwards which is more efficient.

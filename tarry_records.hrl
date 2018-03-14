@@ -1,0 +1,2 @@
+-record(input_data, {initial, nodes}).
+-record(node_data, {name, neighbours}).
