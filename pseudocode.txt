@@ -1,0 +1,52 @@
+Psuedocode
+----------
+
+parse input into record
+
+spawn processes with
+ - name (string)
+
+send to each process a list of neighbour process ids
+
+main sends {pid, empty token} to initiator
+
+process recieves {pid, token}
+ - if parent != null (if on first receive)
+   - parent = pid
+   - Remove pid from list (if exists i.e. not main)
+ - fi
+ - token = [token, name] (can happen when sending)
+ - if neighbours empty
+   - send token to parent
+ - el
+   - pick neighbour
+   - remove neighbour from neighbours
+   - send token to neighbour
+   - listen for next {pid, token}
+ - fi
+
+back in the main process...
+ - list for token
+ - print token item by item (with spaces) to 
+
+
+Pseudo how to handle the messages:
+init() {
+    list(neighbours) ->
+      handle(neighbours)
+}
+
+handle(neighbours) {
+  listen({pid, token}) -> 
+    send token + name
+    neighbours - pid
+    neighbours - send to id
+    handle(parent, neighours)
+}
+
+handle(parent, neighbours) {
+  listen({pid, token}) -> 
+    send token + name
+    neighbours - send too id
+    handle(parent, neighours)
+}
