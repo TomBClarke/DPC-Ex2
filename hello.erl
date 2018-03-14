@@ -1,6 +1,8 @@
+#!/usr/bin/env escript
+
 -module(hello).
 -compile(export_all).
 
-main() ->
+main(_) ->
     io:fwrite("Hello, world!\n").
 
