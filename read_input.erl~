@@ -3,7 +3,7 @@
 -include_lib("tarry_records.hrl").
 -export([read_input/0]).
 
-% Gets the next line from stdin and handles different eof characters. 
+% Gets the line, and nicely handles EOF.
 get_line() ->
     Line = io:get_line(""),
     if
@@ -16,11 +16,10 @@ get_line() ->
         Line == "\r\n" ->
             eof;
         true ->
-            %Removes trailing \n and \r characters from non eof lines.
             string:chomp(Line)
     end.
 
-% Reads the rest of the lines into the record.
+% Reads the rest of stdin.
 read_rest(#input_data{initial = Init, nodes = Nodes}) ->
     Line = get_line(),
     if
@@ -33,7 +32,6 @@ read_rest(#input_data{initial = Init, nodes = Nodes}) ->
             read_rest(NewData)
     end.
 
-%Get initiator node.
 read_first() ->
     Line = get_line(),
     #input_data{initial = Line, nodes = []}.
