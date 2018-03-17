@@ -14,14 +14,17 @@ main() ->
     	true ->
     		ok
     end,
+    % Setup the nodes and send neighbour information.
     Pids = setup_nodes(Nodes),
     send_node_neighbours(Nodes, Pids, 
         length(Nodes)),
     [Initiator|_] = get_pids_of_neighbours([InputData#input_data.initial], 
         Nodes, Pids),
+    % Start the algorithm by giving the initiator the empty token.
     Initiator ! {self(), []},
     receive
         {_, Token} -> 
+            % Receive the token after the algorithm has finished and print it.
             print_token(Token);
         Bad ->
             io:fwrite("Bad token error: ~p~n", [Bad]),
@@ -48,7 +51,7 @@ send_node_neighbours(Nodes, Pids, Index) ->
     lists:nth(Index, Pids) ! NeighbourPids,
     send_node_neighbours(Nodes, Pids, Index - 1).
 
-% Get Pids of neighbours
+% Get Pids of neighbours.
 get_pids_of_neighbours(_, [], []) ->
     [];
 
@@ -62,7 +65,7 @@ get_pids_of_neighbours(Neighbours, [Node|NT], [Pid|PT]) ->
             Rest
     end.
 
-% Prints each element of the token, followed by a new line
+% Prints each element of the token, followed by a new line.
 print_token([]) ->
     io:fwrite("~n");
 

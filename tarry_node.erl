@@ -13,7 +13,7 @@ setup(Name) ->
 wait_for_token_from_parent(Name, Neighbours) ->
     receive
         {Pid, Token} ->
-            % This filters the Pid from the list Neighbours
+            % This filters the Pid from the list Neighbours.
             NeighboursMinusParent = [E || E <- Neighbours, E /= Pid],
             handle_token(Name, NeighboursMinusParent, Pid, Token);
         Bad ->
@@ -31,7 +31,7 @@ wait_for_token(Name, Neighbours, ParentPid) ->
             erlang:error("Setup received bad token information.")
     end.
 
-% Handles the token.
+% Handles a received token token.
 handle_token(Name, Neighbours, ParentPid, Token) ->
     % Add ourselves to the token.
     NextToken = Token ++ [Name],

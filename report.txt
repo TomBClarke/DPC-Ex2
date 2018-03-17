@@ -1,7 +1,7 @@
 Team name: A2Groups 12
 Team members: Thomas Clarke (1443652), Benjamin Durrans (1448828) and Cameron Angus (1438067)
 
-How to run:
+How to run (note: using Erlang 20.2):
 ```bash
 erlc *.erl
 cat "${DATA_FILE_NAME}" | erl -noshell -run tarry main -run init stop
@@ -18,3 +18,4 @@ Special features:
  - We use a random number generator to pick points.
  - We have fairly high code reuse.
  - It parses the input backwards which is more efficient.
+ - We use Erlang 20.2 (Eshell 9.2)
