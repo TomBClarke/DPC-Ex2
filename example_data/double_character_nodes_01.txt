@@ -1,0 +1,7 @@
+pp
+pp qq ss
+qq pp ss tt rr
+rr qq tt
+ss pp qq tt uu
+tt qq rr uu ss
+uu ss tt

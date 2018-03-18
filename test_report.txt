@@ -1,4 +1,6 @@
-Test-result
+###############
+# Test-result #
+###############
 
 AE(assignment example)-success (01.txt)
 
@@ -21,6 +23,7 @@ s p q t u
 t q r u s
 u s t p
 
+
 AE + small isolated graph-success (05.txt)
 
 p
@@ -32,6 +35,7 @@ t q r u s
 u s t
 f a 
 a f
+
 
 AE + large isolated graph-success (06.txt)
 
@@ -47,6 +51,7 @@ a f c
 b f c 
 c a b
 
+
 starting in past 2 in a-success
 
 single iniator-crash tarry.erl line 15
@@ -55,12 +60,14 @@ p
 
 fixed with the new error check code.
 
-single iniator and node - success (07.txt)
+
+single iniator and node - success (single_node_01.txt)
 
 p
 p
 
-large graph-success (08.txt)
+
+large graph-success (07.txt)
 
 a
 a b z
