@@ -41,6 +41,7 @@ handle_token(Name, Neighbours, ParentPid, Token) ->
             ParentPid ! {self(), NextToken};
         _ ->
             SendTarget = lists:nth(rand:uniform(length(Neighbours)), Neighbours),
+            % Remove the neighbour from the list.
             Others = [E || E <- Neighbours, E /= SendTarget],
             SendTarget ! {self(), NextToken},
             wait_for_token(Name, Others, ParentPid)

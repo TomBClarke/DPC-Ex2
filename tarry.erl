@@ -8,12 +8,6 @@ main() ->
     % Get data from stdin.
     InputData = read_input:read_input(),
     Nodes = InputData#input_data.nodes,
-    if 
-    	length(Nodes) == 0 ->
-    		erlang:error("Only initator given, no nodes.");
-    	true ->
-    		ok
-    end,
     % Setup the nodes and send neighbour information.
     Pids = setup_nodes(Nodes),
     send_node_neighbours(Nodes, Pids, 
