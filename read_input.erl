@@ -1,5 +1,4 @@
 -module(read_input).
--import(string, [chomp/1, split/3]).
 -include_lib("tarry_records.hrl").
 -export([read_input/0]).
 

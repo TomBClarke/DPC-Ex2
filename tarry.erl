@@ -19,7 +19,8 @@ main() ->
     receive
         {_, Token} -> 
             % Receive the token after the algorithm has finished and print it.
-            print_token(Token);
+            TokenString = string:join(Token, " "),
+            io:fwrite("~ts", [TokenString]);
         Bad ->
             io:fwrite("Bad token error: ~p~n", [Bad]),
             erlang:error("Main received bad token.")
@@ -58,14 +59,3 @@ get_pids_of_neighbours(Neighbours, [Node|NT], [Pid|PT]) ->
         true ->
             Rest
     end.
-
-% Prints each element of the token, followed by a new line.
-print_token([]) ->
-    io:fwrite("~n");
-
-print_token([HeadToken]) ->
-    io:fwrite("~ts~n", [HeadToken]);
-
-print_token([HeadToken|RestOfToken]) ->
-    io:fwrite("~ts ", [HeadToken]),
-    print_token(RestOfToken). 
