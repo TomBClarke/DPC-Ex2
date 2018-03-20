@@ -20,3 +20,5 @@ Special features:
  - It parses the input backwards which is more efficient.
  - We sanity check the input and return nice error messages if it's incorrect.
  - We use Erlang 20.2 (Eshell 9.2)
+
+Our submission also includes our test data, `run.sh` and `test_all.sh`. `run.sh` is ran as `./run.sh <file>` and runs the (precompiled) Erlang code with the given input file. `test_all.sh` runs all of our test data through out program. It only outputs when an unexpected error occurs, or no custom error (i.e. there is a problem but our code does not catch it nicely) is printed (e.g. for all files in 'example_data' nothing should print, and for files in 'bad_inputs' the script will only print out error messages when they are not custom ones we have implemented).
