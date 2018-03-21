@@ -58,6 +58,6 @@ fi
 
 fileContent="$( cat "${1}" )"
 cd "${scriptLocation}"
-echo "${fileContent}" | erl -noshell -run tarry main -run init stop
+echo "${fileContent}" | erl -noshell -run tarry -run init stop
 
 # --- --- ---

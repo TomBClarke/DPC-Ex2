@@ -4,7 +4,7 @@ Team members: Thomas Clarke (1443652), Benjamin Durrans (1448828) and Cameron An
 How to run (note: using Erlang 20.2):
 ```bash
 erlc *.erl
-cat "${DATA_FILE_NAME}" | erl -noshell -run tarry main -run init stop
+erl -noshell -run tarry -run init stop < <DATA_FILE_NAME>
 ```
 
 Sample output:

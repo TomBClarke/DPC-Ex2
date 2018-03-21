@@ -1,10 +1,10 @@
 -module(tarry).
 -import(read_input, [read_input/0]).
 -include_lib("tarry_records.hrl").
--export([main/0]).
+-export([start/0]).
 
 % Main method.
-main() ->
+start() ->
     % Get data from stdin.
     InputData = read_input:read_input(),
     Nodes = InputData#input_data.nodes,

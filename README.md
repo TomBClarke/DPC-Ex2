@@ -13,7 +13,7 @@ erlc *.erl
 
 To run the code, execute from this directory:
 ```bash
-erl -noshell -run tarry main -run init stop
+erl -noshell -run tarry -run init stop
 ```
 and pipe into `stdin` the input data.
 
